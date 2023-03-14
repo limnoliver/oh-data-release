@@ -1,22 +1,22 @@
 title: >-
-  Data release: [your title here]
+  Data release: Sensitivity of walleye optical habitat to clarity scenarios in Minnesota lakes
 
 
 abstract: >-
-  [a description of this data release]
+  abstract about scenarios here
       
-authors: ["[NAME 1]", "[NAME 2]"]
-pubdate: 2020 # replace with actual year, e.g., 2020
-doi: https://doi.org/YY.XXXXX/XXXXXX # replace with actual DOI
+authors: ["author names here"]
+pubdate: 2023 # replace with actual year, e.g., 2020
+doi: https://doi.org/10.5066/P9G5F1UC # replace with actual DOI
 
 build-environment: Multiple computer systems were used to generate these data, including linux, OSX. The open source languages R and Python were used on all systems.
 
 # ----associated publication----
 larger-cites:
   -
-    authors: ["Jordan S. Read", "Xiaowei Jia", "Jared Willard", "Alison P. Appling", "Jacob A. Zwart","Samantha K. Oliver","Anuj Karpatne","Gretchen J.A. Hansen", "Paul C. Hanson", "William Watkins", "Michael Steinbach","Vipin Kumar"]
+    authors: ["xxx"]
     title: >-
-      Process-guided deep learning predictions of lake water temperature
+      xxx
     pubdate: 2019
 
 # ----supporting publications----    
@@ -69,6 +69,126 @@ entities:
       data-max: NA
       data-units: meters squared (m^2)
   -
+    data-name: spatial.zip
+    data-description: >-
+      A zip folder containing a shapefile of lake centroids for 881 study lakes in Minnesota, USA.
+      Attributes that describe lake characteristics (e.g., area, depth) and other metadata (lake name)
+      are included. 
+    attributes:
+    -
+      attr-label: site_id
+      attr-def: >-
+        Lake identification number for this dataset. It is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and some can include special characters, such as "{" and "}".
+      attr-defs: http://nhd.usgs.gov/
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: centroid_lon
+      attr-def: longitude (decimal-degrees) of the centroid of this lake
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: decimal-degrees
+    -
+      attr-label: centroid_lat
+      attr-def: latitude (decimal-degrees) of the centroid of this lake
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: decimal-degrees
+
+  -
+    data-name: lake_metadata.csv
+    data-description: >-
+      A csv containing metadata for study lakes in Minnesota, USA.
+      Attributes that describe lake characteristics (e.g., area, depth) and other metadata (lake name)
+      are included. 
+    attributes:
+    -
+      attr-label: site_id
+      attr-def: >-
+        Lake identification number for this dataset. It is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and some can include special characters, such as "{" and "}".
+      attr-defs: http://nhd.usgs.gov/
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: lake_name
+      attr-def: >-
+        GNIS Name for each lake. Usually the common name of the lake. NA when missing.
+      attr-defs: http://nhd.usgs.gov/
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: group_id
+      attr-def: >-
+        Lake grouping used in Read et al. 2021, from which data were used to generate results in this study.
+      attr-defs: https://doi.org/10.5066/P9PPHJE2
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: meteo_filename
+      attr-def: >-
+        The filename that contains meteorological data associated with the lake from Read et al 2021.
+      attr-defs: https://doi.org/10.5066/P9PPHJE2
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: depth
+      attr-def: Lake depth, in meters.
+      attr-defs: https://doi.org/10.5066/P9PPHJE2
+      data-min: NA
+      data-max: NA
+      data-units: meters (m)
+    -
+      attr-label: area
+      attr-def: Lake area, in square meters.
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: square meters (m^2)
+    -
+      attr-label: SDF
+      attr-def: Shoreline development factor
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: unitless
+    -
+      attr-label: total_benthic_area
+      attr-def: >-
+        Using the available hypsography for each lake, a benthic area (area of lake bottom) was estimated by assuming the lake cross section resembled a trapezoid. Using each known depth-area relationship, the sides of the trapezoid were calculated and then summed along with the deepest known area (to capture the actual lake bottom) to get a total benthic area.
+      attr-defs: https://doi.org/10.5066/P9PPHJE2
+      data-min: NA
+      data-max: NA
+      data-units: square meters (m^2)
+    -
+      attr-label: state
+      attr-def: Two letter abbreviated state name for each state overlapped by this lake. When more than one state, state abbreviations are separated by "|", such as "MN|SD"
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: county
+      attr-def: >-
+        County name for each county overlapped by this lake. When more than one county, county names are separated by "|", such as "Lake|St. Louis".
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: mndow_id
+      attr-def: MN lake identifier ("DOW").  When more than one DOW exists for one site_id, mndow_ids are separated by "|", such as "mndow_37004600|mndow_37004601".      
+      attr-defs: NA
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
     data-name: oha_annual_scenarios.csv
     data-description: >-
       A csv file containing annual (2010-2014) Walleye optical habitat estimates for xxx lakes under
@@ -116,7 +236,7 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: oha_metrics_by_lake
+    data-name: oha_metrics_by_lake.csv
     data-description: >-
       A csv file containing optical habitat (OH) metrics for xxx lakes in Minnesota. These metrics
       describe various features (slope, magnitude, location of peak, etc) of the relationship between water clarity and optical habitat in
@@ -136,11 +256,17 @@ entities:
       Metrics realted to "5PBOH" indicate the clarity values for that lake that would lead to at least 5% of
       the total benthic area that is suitable as Walleye OH. This 5% threshold has been shown to be conducive to a lake
       xxxsustaining a healthy walleye populationxxx. These metrics are useful in determining how resilient a lake is to maintaining good walleye habitat.
-      
-    
     attributes:
     -
-      attr-label: {clarity}_slope_pp_per_interval_{direction}_{stat}
+      attr-label: site_id
+      attr-def: Lake identification number for this dataset. It is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}". The ids have a mix of characters and some can include special characters, such as "{" and "}".
+      attr-defs: http://nhd.usgs.gov/
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: >-
+        {clarity}_slope_pp_per_interval_{direction}_{stat}
       attr-def: >-
         The slope of the optical habitat (OH) ~ clarity curve at specific water clarity values. 
         The slope is reported as percentage point change in OH per
@@ -163,7 +289,8 @@ entities:
       data-max: NA
       data-units: percentage points per 0.25m
     -
-      attr-label: {clarity}_slope_area_per_interval_{direction}_{stat}
+      attr-label: >-
+        {clarity}_slope_area_per_interval_{direction}_{stat}
       attr-def: >-
         The slope of the optical habitat (OH) ~ clarity curve at the maximum OH as clarity changes.
         The slope is reported as change in area of OH per clarity change (+0.25m).
@@ -187,7 +314,8 @@ entities:
       data-max: NA
       data-units: m^2/0.25m
     -
-      attr-label: {clarity}_slope_p_per_interval_{direction}_{stat}
+      attr-label: >-
+        {clarity}_slope_p_per_interval_{direction}_{stat}
       attr-def: >-
         The slope of the Walleye optimal optical habitat (OH) ~ clarity curve at the maximum OH as clarity changes.
         The slope is reported as percentage change in OH per clarity change (0.25m).
@@ -215,12 +343,23 @@ entities:
       attr-label: max_annual_oh_{stat}
       attr-def: >-
         The maximum annual Walleye optical habitat (OH) area across different clarity scenarios.
+        Optical habitat is the area of the lake bottom where light intensity is between 0.0762 W/m^2 and 0.6476 W/m^2.
         Three columns are used to report different variations of this metric.
         {stat} indicates the value is the minimum (min), maximum (max), or mean (mean) of the 5-year modeling period.
       attr-defs: This data release.
       data-min: NA
       data-max: NA
-      data-units: square meters (m^2)    
+      data-units: square meters (m^2)   
+    -
+      attr-label: max_annual_perc_benthic_oha_{stat}
+      attr-def: >-
+        The maximum annual Walleye optical habitat (OH) area across different clarity scenarios, expressed as the percent of the lake bottom where light intensity is between 0.0762 W/m^2 and 0.6476 W/m^2.
+        Three columns are used to report different variations of this metric.
+        {stat} indicates the value is the minimum (min), maximum (max), or mean (mean) of the 5-year modeling period.
+      attr-defs: This data release.
+      data-min: NA
+      data-max: NA
+      data-units: square meters (m^2) 
     -
       attr-label: current_annual_oh_{stat}
       attr-def: >-
@@ -233,7 +372,7 @@ entities:
       data-max: NA
       data-units: square meters (m^2)  
     -
-      attr-label: current_annual_perc_oh_{stat}
+      attr-label: current_annual_perc_benthic_oha_{stat}
       attr-def: >-
         The annual Walleye optical habitat (OH) area expressed as the percent of the lake bottom where light intensity is between 0.0762 W/m^2 and 0.6476 W/m^2.
         Optical habitat was calculated under "current" clarity conditions, which was was estimated using the modeled water clarity in 2018 (cite xxx).
@@ -288,7 +427,8 @@ entities:
       data-max: NA
       data-units: NA
     -
-      attr-label: {stat}_clarity_5PBOH
+      attr-label: >-
+        {stat}_clarity_5PBOH
       attr-def: >-
         The water clarity conditions, expressed as Secchi depth, that produce at least 5% of the lake bottom as Walleye optical habitat (OH).
         This threshold has been estimated as the amount of OH that produces a susatainable walleye fishery (xxx).
@@ -330,7 +470,7 @@ start-date: 20100101
 end-date: 20141231
 
 update: none planned
-themekeywords: ["water","temperate lakes","water clarity","fish habitat""]
+themekeywords: ["water","temperate lakes","water clarity","fish habitat"]
 
 usage-rules: >-
   These data are open access usable via creative commons as long as original data providers are acknowledged

@@ -158,8 +158,12 @@ verify_uploads <- function(file_tbl, tgt_names, remake_file){
 #' @details can avoid `dssecrets` usage sbtools::authenticate_sb('[my_sb_user]'), 
 #' as long as you have permission to edit the item(s)
 sb_secret_login <- function(){
-  if (!sbtools::is_logged_in()){
-    sb_secret <- dssecrets::get_dssecret("cidamanager-sb-srvc-acct")
-    sbtools::authenticate_sb(username = sb_secret$username, password = sb_secret$password)
-  }
+  #last_auth <- Sys.time()
+  sbtools::authenticate_sb("soliver@usgs.gov", "WisConserve2!")
+  #if(as.numeric(Sys.time() - last_auth) > 2400) {
+    # get authenticated every 10 minutes
+   # sbtools::authenticate_sb("soliver@usgs.gov", 'WisConserve2!')
+    
+   # last_auth <- Sys.time()
+  #}
 }
